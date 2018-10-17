@@ -55,6 +55,47 @@
             <td>&nbsp;</td>
         </tr>
     </table>
+    <!-- 表单（选完了可以提交的就是表单，有选项） -->
+    <form>
+        <span>用户名:</span><input type="text">
+        <br/>
+        <span>密 码: </span><input type="password"><br/>
+
+        <label for="aa">用户名：</label><input id="aa" type="text">
+        <div>
+            <!-- 单选框 -->
+            <input type="radio" name="sex">男
+            <input type="radio" name="sex">女
+        </div>
+        <div>
+            <!-- 复选框；name是将数据传给后台，值是随意的 -->
+            <input type="checkbox" name="hobby">篮球
+            <input type="checkbox" name="hobby">足球
+            <input type="checkbox" name="hobby">乒乓球
+        </div>
+        <div>
+            <!-- 下拉框 -->
+            <select name="" id="">
+                <option value="">16级</option>
+                <option value="">17级</option>
+                <option value="">18级</option>
+            </select>
+        </div>
+        <!-- 文本域 -->
+        <textarea name="" id="" cols="30" rows="10"></textarea>
+        <!-- 按钮 -->
+        <button>提交</button>
+        <!-- 如果form中action属性有内容，可以提交给后台，而button只是按钮 -->
+        <input type="submit" value="提交表单">
+    </form>
+    <!-- 
+        行级元素：多个占一行，不能设置宽高
+        a span label strong（加粗） b(加粗，重点)
+        块级元素：
+        h p div table ul ol li
+        
+        行级块元素:img  input 
+     -->
 </body>
 
 </html>
