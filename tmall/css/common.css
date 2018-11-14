@@ -1,0 +1,77 @@
+*{
+    margin: 0px;
+    padding:0px;
+}
+ul{
+    list-style:none;
+}
+a{
+    text-decoration: none;
+}
+body{
+    font: 12px/1.5 tahoma,arial,"\5b8b\4f53";
+}
+
+/* banner开始 */
+/* inline-block元素可以通过设置父元素的text-aline来使其居中 
+块元素居中要设置margin，设置两个值，第一个代表上下，第二个左右*/
+.banner{
+background:#ff2f7c;
+text-align: center;
+}
+
+.banner img{
+    display: block;
+    margin: 0px auto;
+}
+
+/* banner结束 */
+/* header开始 */
+#header{
+    height:33px;
+    background:#f2f2f2;
+    box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.3);
+}
+
+.wrapper{
+    width:1230px;
+    margin:0 auto;
+    line-height: 32px;
+    color:#999;
+    
+}
+.header-login{
+    float:left;
+}
+.header-login a,.header-login span{
+    color:#999;
+    
+}
+.header-login a{
+    padding-left:20px;
+}
+.header-login a:hover{
+    color:rgba(255, 0, 21, 0.747);
+}
+
+.header-list{
+float:right;
+}
+.header-list li {
+    float:left;
+    /* padding:0 15px 0 20px; */
+    padding-left:24px; 
+}
+.header-list li a{
+    
+    color:#999;
+
+}
+.header-list li a:hover{
+    color:rgba(255, 0, 21, 0.747);
+}
+.icon-gouwucheman,.icon-shouji{
+    color:#FF0036;
+}
+
+/* header结束 */

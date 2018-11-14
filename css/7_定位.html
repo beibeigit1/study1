@@ -8,34 +8,70 @@
     <title>Document</title>
 
     <style>
-        div{
-            width:100px;
-            height:50px;
-            display:inline-block;
-        }
-        #div1{
-            background-color: aqua;
-        }
-        #div2{
-            background:red;
+        *{
+            margin: 0;
 
         }
-        #div3{
-            background:blue;
+
+        div {
+
+            width: 100px;
+            height: 50px;
+            display: inline-block;
         }
+        #div0{
+            width:500px;
+            height:200px;
+            background-color: darkgrey;
+            
+            position: relative;
+            left:100px;
+            top:10px;
+        }
+
+        #div1 {
+            background-color: aqua;
+            /* position:relative;
+            left:10px; */
+
+
+        }
+
+        #div2 {
+            background: red;
+            position:relative;
+            left:10px;
+            top:10px;
+
+
+        }
+
+        #div3 {
+            background: blue;
+        }
+
+        /* 
+            position:
+                relative 相对定位 相对于自己原来的位置  定位后空间不释放
+                absolute 绝对定位 相对于最近已定位的祖先元素 如果没有最近已定位的祖先元素 就相对于body
+                                 定位后空间释放
+                fixed    固定定位 相对于浏览器  定位后空间释放
+                static   默认的  
+        */
     </style>
 </head>
 
 <body>
-    <div id="div1">
-        111
+    <div id="div0">
+            <div id="div1">
+                    111
+                </div><div id="div2">
+                    222
+                </div><div id="div3">
+                    333
+                </div>
     </div>
-    <div id="div2">
-        222
-    </div>
-    <div id="div3">
-        333
-    </div>
+    
 
 
 </body>

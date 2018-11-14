@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #div1{
+            width:150px;
+            height:50px;
+            background:red;
+            float:left;
+        }
+        #div2{
+            width:150px;
+            height:50px;
+            background:blue;
+            float:left;
+        }
+    </style>
+<!-- float为浮动，浮动之后空间释放，不占地方，层级高，会浮在上面
+    会有塌陷问题；
+    解决塌陷：
+    1.overflow：hidden;父元素加
+    2.给父元素设置高度
+    3 浮动元素下边加一个兄弟元素  clear:both
+    4 clearfix ::after伪元素 块级  clear:both
+
+-->
+
+</head>
+
+<body>
+    <div id="div0">
+        <div id="div1">1</div>
+        <div id="div2">2</div>
+    </div>
+    <h1>hello world</h1>
+</body>
+
+</html>
