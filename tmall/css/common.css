@@ -40,7 +40,7 @@ text-align: center;
     color:#999;
     
 }
-.header-login{
+.header-login{  
     float:left;
 }
 .header-login a,.header-login span{
@@ -77,7 +77,6 @@ float:right;
 }
 .header-list li a.my-tb{
     display:block;
-    background:#fff; 
 }
 .header-tianmao{
     height:130px;
