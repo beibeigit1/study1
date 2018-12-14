@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin:0px;
+            padding:0px;
+        }
+        /* body {
+            position: absolute;
+            为什么非要加注释，加上这个条件就不好使了
+        } */
+
+        #one {
+            height: 50px;
+            width: 50px;
+            background: #0f0;
+            position:absolute;
+            left:0px;
+            top:0px;
+        }
+
+        #two {
+            height:50px;
+            background: #ff0;
+            /* position:absolute; */
+            /* 一加上面的position，two就没了 */
+            left:50px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="one"></div>
+    <div id="two"></div>
+</body>
+
+</html>

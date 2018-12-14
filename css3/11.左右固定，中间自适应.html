@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            /* display: flex; */
+            width:100%;
+            
+        }
+
+        #left {
+            height: 100px;
+            width: 100px;
+            background: #f03;
+            position: absolute;
+            margin-left: 0px;
+
+        }
+
+        #right {
+            height: 100px;
+            width: 100px;
+            background: #ff3;
+            position: absolute;
+            right: 0px;
+            top:0px;
+
+        }
+
+        #center {
+            height: 100px;
+            background: #0ff;
+            /* flex-grow: 1; */
+            margin:0px 10px;
+            /* 在当前设置下，加不加display：flex这个属性都无所谓，都可以实现，相当于用定位实现了 
+            如果采用display这一方法，则不需要对左右元素定位，只是要注意div的顺序*/
+        }
+    </style>
+</head>
+
+<body>
+    <div id="left"></div>
+    
+    <div id="center"></div>
+    <div id="right"></div>
+</body>
+
+</html>
