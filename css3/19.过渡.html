@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            background: #ff0;
+            animation: run 2s ease 2s forwards;
+            /* 动画名：run ；运动持续时间 运动方式 延迟时间 保持终止状态不动 */
+
+
+
+            /* 触发条件：当鼠标滑过时 */
+            /* transition: width 2s ease 1s; */
+            /* 过渡，延迟一秒。运动方式ease，时间2s */
+        }
+
+        @keyframes run{
+            0%{
+            }
+            30%{
+                width: 500px;
+            }
+            60%{
+                width: 300px;
+            }
+            100%{
+                width: 800px;
+            }
+
+        }
+
+        /* div:hover {
+            width: 800px;
+        } */
+    </style>
+</head>
+
+<body>
+    <div>
+
+    </div>
+</body>
+
+</html>
