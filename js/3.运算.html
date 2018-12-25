@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script>
+        var a = 'abc';
+        var b = 'def';
+        //字符串拼接
+        console.log(a + b);
+        var c = 12;
+        // c++;
+        // 先参与运算再加加
+        console.log(c++);    //输出结果为12
+
+        console.log(a + c);   //输出结果为abc13
+        console.log('abc' + 5)  //abc5
+        console.log('abc' - 5) //NAN not a number
+        // 只可以算加法（混合的时候）
+        console.log('5' + 1); //51 ,字符串后面的数被当做字符串相加
+
+        //加法就是字符串拼接，能转的就进行运算 
+        // alert('23+45='+(23+45));
+        // alert(2!=2);
+        console.log(5 + 1);
+
+        var str = "some string here!";
+        var num = 123;
+        console.log(str * num);//将输出NaN,因为乘法运算符只能针对数字,所以进行运算时计算机会将字段串转换成数字
+        //而这里的字符串转换成数字将会是NaN
+        console.log(typeof 123 + "");  //still number
+        console.log(typeof (123 + ""));  //因为加了括号，变成string
+
+        var bool = false;
+        console.log(typeof (bool + ""));//变成string
+        var age = window.prompt("请输入您的年龄！", "18");
+        var  nian = age * 365 * 24 * 3600;
+        alert('你已经活了'+nian+'秒');
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>
