@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var win = 0;
+        function lucky(n) {
+            
+            for (i = 1; i <= n; i++) {
+                var a = Math.floor(Math.random() * 9 + 1);
+                var b = Math.floor(Math.random() * 9 + 1);
+                var c = Math.floor(Math.random() * 9 + 1);
+                if (a == 8 || b == 8 || c == 8) {
+                    win++;
+                }
+                document.write(a);
+                document.write(b);
+                document.write(c);
+                document.write('<br/>');
+            }
+
+            return win / n;
+        }
+
+        document.write(lucky(100));
+
+    </script>
+</body>
+
+</html>
