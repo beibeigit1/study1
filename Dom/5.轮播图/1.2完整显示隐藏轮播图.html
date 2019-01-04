@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul {
+            list-style: none;
+
+        }
+
+        #container {
+            height: 291px;
+            width: 750px;
+            margin: 100px auto;
+            position: relative;
+        }
+
+        img {
+            display: none;
+        }
+
+        #img-box .active {
+            display: block;
+        }
+
+        #btn-box li,
+        #arrow-box li {
+            float: left;
+            background: rgba(0, 0, 0, 0.5);
+            width: 20px;
+            height: 20px;
+            margin-right: 2px;
+            text-align: center;
+            line-height: 20px;
+            cursor: pointer;
+            color: aliceblue;
+            border-radius: 6px;
+            font-size: 14px;
+        }
+
+        /* 具体元素左浮 */
+
+        #btn-box {
+            position: absolute;
+            right: 10px;
+            bottom: 10px;
+        }
+
+        #btn-box .selected {
+            background: #ff0036;
+        }
+
+        #arrow-box {
+            position: absolute;
+            left: 10px;
+            bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <div id="img-box">
+            <img class="active" src="img/1.jpg" alt="">
+            <img src="img/2.jpg" alt="">
+            <img src="img/3.jpg" alt="">
+            <img src="img/4.jpg" alt="">
+            <img src="img/5.jpg" alt="">
+        </div>
+        <ul id="btn-box">
+            <li class="selected">1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+        </ul>
+        <ul id="arrow-box">
+            <li id="pre">&lt;</li>
+            <li id="next">&gt;</li>
+        </ul>
+
+    </div>
+    <script>
+        var oBtn = document.getElementById('btn-box');
+        var oLi = oBtn.getElementsByTagName('li');     //按钮
+        var oImgBox = document.getElementById('img-box');
+        var oImg = oImgBox.getElementsByTagName('img');  //图
+        var oNext = document.getElementById('next');     // < 和 >
+        var oPre = document.getElementById('pre');
+        oContainer = document.getElementById('container');
+        //记录当前索引
+        var iNow = 0;
+        for (var i = 0; i < oLi.length; i++) {
+            oLi[i].index = [i];
+            oLi[i].onclick = function () {
+                change(this.index);
+                iNow = this.index;  //更新iNow值
+            }
+        }
+
+        //点击上一个按钮
+        oPre.onclick = function () {
+            iNow--;
+            if (iNow == -1) {
+                iNow = oLi.length - 1;
+            }
+            change(iNow);
+        }
+
+        //点击下一个按钮
+        oNext.onclick = function () {
+            iNow++;
+            if (iNow == oLi.length) {
+                iNow = 0;
+            }
+            change(iNow);
+        }
+        //索引是几，就传几，显示所传索引
+        function change(idx) {
+            for (var j = 0; j < oLi.length; j++) {
+                oLi[j].className = '';
+                oImg[j].className = '';
+            }
+            oLi[idx].className = "selected"
+            oImg[idx].className = "active";
+        }
+
+        //定时器
+        var timer;
+
+        // timer = setInterval(function () {
+        //     oNext.onclick();
+        // }, 1000)
+        run();
+
+        oContainer.onmouseover = function () {
+            //滑入时
+            clearInterval(timer);
+        }
+        oContainer.onmouseout = function () {
+            //划出时
+            // timer = setInterval(function () {
+            //     oNext.onclick();
+            // }, 1000)
+            run();
+        }
+        //为了简便，可以将上述重复部分进行函数设定
+        function run(){
+            timer = setInterval(function () {
+            oNext.onclick();
+        }, 1000)
+        }
+    </script>
+</body>
+
+</html>
