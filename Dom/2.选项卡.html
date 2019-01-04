@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        ul {
+            overflow: hidden;
+        }
+
+        li {
+            list-style: none;
+            background: #f0f;
+            float: left;
+            margin-right: 3px;
+            width: 100px;
+            height: 40px;
+
+        }
+
+        #content div {
+            background: #ccc;
+            width: 306px;
+            height: 200px;
+            display: none;
+
+        }
+
+        #content div.active {
+            display: block;
+        }
+
+        li.selected {
+            background: #ff0;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <ul id="btn-box">
+            <li class="selected">111</li>
+            <li>222</li>
+            <li>333</li>
+        </ul>
+        <div id="content">
+            <div class="active">aaa</div>
+            <div>bbb</div>
+            <div>ccc</div>
+        </div>
+    </div>
+
+
+    <script>
+        //给点击元素加上selected class名
+        //i=3;所以aLi[i]会返回undefined,console.log(aLi[i])这条程序中的i与for中不同步，所以不能用
+        //代表对当前·事件的引用  点击谁，this是谁
+        //    console.log(this);
+        var aLi = document.getElementsByTagName('li');
+        var oContent = document.getElementById('content');
+        var aDiv = oContent.getElementsByTagName('div');
+        for (var i = 0; i < aLi.length; i++) {//页面加载的时候就会执行，给三个li绑定事件onclick，
+            aLi[i].idx = i;   //自定义属性
+            aLi[i].onclick = function () {
+
+                for (var j = 0; j < aLi.length; j++) {
+                    aLi[j].className = ' ';
+                    aDiv[j].className = ' ';
+
+                }
+                this.className = 'selected';
+                // for (var k = 0; k < aDiv.length; k++) {
+                //     aDiv[k].className = ' ';
+                // }
+                aDiv[this.idx].className = 'active';
+
+            }
+        }
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>

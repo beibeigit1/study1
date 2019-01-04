@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var z = 1;
+        for (var i = 100; i <= 1000; i++) {
+            if (z % 7 != 0) {
+                document.write(su(i) + ' ');
+                if (typeof (su(i)) == 'number')
+                    z++;
+            } else {
+                document.write(su(i) + '<br>');
+                if (typeof (su(i)) == 'number') {
+                    z++;
+                }
+            }
+        }
+        function su(k) {
+            var b = 0;
+            for (var j = 2; j <= k; j++) {
+                if (k % j == 0) {
+                    b++;
+                }
+            }
+            if (b < 2) {
+                return k;
+            } else {
+                return '';
+            }
+        }
+
+
+    </script>
+</body>
+
+</html>
