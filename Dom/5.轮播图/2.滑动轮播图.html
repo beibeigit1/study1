@@ -1,18 +1,174 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <style>
-    
-    
-    
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul {
+            list-style: none;
+
+        }
+
+        #container {
+            height: 291px;
+            width: 750px;
+            margin: 100px auto;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* picture设置 */
+        img {
+            float: left;
+            /* 令图片左浮效果最好，如果只是令他们单纯排在一行，因为img之间的回车
+            会导致图片之间有间隙，使得图像偏移 */
+            /* display: inline-block; */
+        }
+
+        #img-box {
+            width: 3780px;
+
+            position: absolute;
+            left: 0;
+            /* 默认值为auto   */
+            transition: left 1s linear;
+
+        }
+
+
+
+        #btn-box li,
+        #arrow-box li {
+            float: left;
+            background: rgba(0, 0, 0, 0.5);
+            width: 20px;
+            height: 20px;
+            margin-right: 2px;
+            text-align: center;
+            line-height: 20px;
+            cursor: pointer;
+            color: aliceblue;
+            border-radius: 6px;
+            font-size: 14px;
+        }
+
+        /* 具体元素左浮 */
+
+        #btn-box {
+            position: absolute;
+            right: 10px;
+            bottom: 10px;
+        }
+
+        #btn-box .selected {
+            background: #ff0036;
+        }
+
+        #arrow-box {
+            position: absolute;
+            left: 10px;
+            bottom: 10px;
+        }
     </style>
 </head>
+
 <body>
-    
+    <div id="container">
+        <div id="img-box">
+            <img src="img/1.jpg" alt="">
+            <img src="img/2.jpg" alt="">
+            <img src="img/3.jpg" alt="">
+            <img src="img/4.jpg" alt="">
+            <img src="img/5.jpg" alt="">
+        </div>
+        <ul id="btn-box">
+            <li class="selected">1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+        </ul>
+        <ul id="arrow-box">
+            <li id="pre">&lt;</li>
+            <li id="next">&gt;</li>
+        </ul>
+
+    </div>
+    <script>
+
+        var oBtnBox = document.getElementById('btn-box');
+        var oBtn = oBtnBox.getElementsByTagName('li');
+        var oImg = document.getElementById('img-box');
+        var oPre = document.getElementById('pre');
+        var oNext = document.getElementById('next');
+        var oContainer = document.getElementById('container');
+
+        var iNow = 0;
+        function change(idx) {
+            for (var j = 0; j < oBtn.length; j++) {
+                oBtn[j].className = '';
+                // oImg[j].className = '';
+            }
+            oBtn[idx].className = 'selected';
+            oImg.style.left = -idx * 750 + 'px';
+        }
+        for (var i = 0; i < oBtn.length; i++) {
+            oBtn[i].index = [i]
+            oBtn[i].onclick = function () {
+                change(this.index);
+                iNow = this.index;
+            }
+        }
+
+        oPre.onclick = function () {
+
+            iNow--;
+            if (iNow == -1) {
+                iNow = 4
+            }
+            change(iNow);
+        }
+        oNext.onclick = function () {
+
+            iNow++;
+            if (iNow == 5) {
+                iNow = 0;
+            }
+            change(iNow);
+        }
+
+        //定时器
+        var timer;
+        run();
+        oContainer.onmouseover = function () {
+            clearInterval(timer);
+        }
+        oContainer.onmouseout = function () {
+            run();
+        }
+        function run() {
+            timer = setInterval(function(){
+                oNext.onclick();
+            }, 2000);
+        }
+
+
+
+
+
+
+
+
+    </script>
 
 </body>
+
 </html>
