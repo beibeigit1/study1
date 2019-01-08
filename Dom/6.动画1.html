@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #div1 {
+            width: 100px;
+            height: 100px;
+            background: #f0f;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="div1">
+
+    </div>
+<!-- 以下做法有瑕疵，会造成多个timer的情况。因为循环，此时虽然宽度不再增加
+但是定时器一直在，只清除了其中一个 -->
+    <script>
+        var oDiv = document.getElementById('div1');
+        var timer;
+        oDiv.onclick = function () {
+            do {
+                timer = setInterval(function () {
+                    if (oDiv.offsetWidth >= 800) {
+                        clearInterval(timer);
+                    }
+                    else {
+                        oDiv.style.width = oDiv.offsetWidth + 10 + 'px';
+                    }
+                    console.log(oDiv.offsetWidth);
+
+                }, 20);
+            } while (oDiv.onclick())
+
+
+        }
+
+
+
+
+
+    </script>
+</body>
+
+</html>

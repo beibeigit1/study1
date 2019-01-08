@@ -34,11 +34,11 @@
         }
 
         #img-box {
-            width: 3780px;
+            width: 4500px;
 
             position: absolute;
             left: 0;             /* 默认值为auto   */
-            transition: left 1s linear;
+            /* transition: left 1s linear; */
             /* 监测属性left；如果发生变化，令这个变化1s内完成；匀速完成 */
         }
 
@@ -87,6 +87,7 @@
             <img src="img/3.jpg" alt="">
             <img src="img/4.jpg" alt="">
             <img src="img/5.jpg" alt="">
+            <img src="img/1.jpg" alt="">
         </div>
         <ul id="btn-box">
             <li class="selected">1</li>
@@ -110,56 +111,7 @@
         var oNext = document.getElementById('next');
         var oContainer = document.getElementById('container');
 
-        var iNow = 0;
-        function change(idx) {
-            for (var j = 0; j < oBtn.length; j++) {
-                oBtn[j].className = '';
-                // oImg[j].className = '';
-            }
-            oBtn[idx].className = 'selected';
-            oImg.style.left = -idx * 750 + 'px';
-        }
-        for (var i = 0; i < oBtn.length; i++) {
-            oBtn[i].index = [i]
-            oBtn[i].onclick = function () {
-                change(this.index);
-                iNow = this.index;
-            }
-        }
-
-        oPre.onclick = function () {
-
-            iNow--;
-            if (iNow == -1) {
-                iNow = 4
-            }
-            change(iNow);
-        }
-        oNext.onclick = function () {
-
-            iNow++;
-            if (iNow == 5) {
-                iNow = 0;
-            }
-            change(iNow);
-        }
-
-        //定时器
-        var timer;
-        run();
-        oContainer.onmouseover = function () {
-            clearInterval(timer);
-        }
-        oContainer.onmouseout = function () {
-            run();
-        }
-        function run() {
-            timer = setInterval(function(){
-                oNext.onclick();
-            }, 2000);
-        }
-
-
+        
 
 
 

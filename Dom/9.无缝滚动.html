@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        #container {
+            width: 400px;
+            height: 200px;
+            border: 1px solid #000;
+            margin: 100px auto;
+            overflow: hidden;
+            position: relative;
+        }
+
+        #num-box {
+            list-style: none;
+            width: 1000px;
+            position: absolute;
+
+        }
+
+        #num-box li {
+            width: 120px;
+            height: 120px;
+            background: #ff00ff;
+            float: left;
+            margin-right: 5px;
+        }
+
+        #btn-box {
+            position: absolute;
+            left: 100px;
+            bottom: 15px;
+        }
+
+        #btn-box span {
+            width: 100px;
+            height: 50px;
+            background: rgb(235, 143, 235);
+            display: inline-block;
+            line-height: 50px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <ul id="num-box">
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+
+        </ul>
+        <div id="btn-box">
+            <span id="left">向左</span>
+            <span id="right">向右</span>
+        </div>
+    </div>
+
+    <script>
+        var oContainer = document.getElementById('container');
+        var oNumBox = document.getElementById('num-box');
+        var oRight = document.getElementById('right');
+        var oLeft = document.getElementById('left');
+
+
+        var speed = -3;
+        setInterval(function () {
+            // left 值 小于等于 宽度的一半的时候  left设置成0
+            if (oNumBox.offsetLeft <= -oNumBox.offsetWidth / 2) {
+                oNumBox.style.left = 0;
+            }
+            if (oNumBox.offsetLeft > 0) {
+                oNumBox.style.left = -oNumBox.offsetWidth / 2 + 'px';
+                // console.log(oNumBox.offsetLeft);
+            }
+
+            oNumBox.style.left = oNumBox.offsetLeft + speed + 'px';
+
+
+        }, 20)
+        oRight.onclick = function () {
+            speed = 3;
+        }
+        oLeft.onclick = function () {
+            speed = -3;
+        }
+
+
+    </script>
+</body>
+
+</html>
