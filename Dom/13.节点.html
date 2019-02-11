@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="div1">
+        <ul id="oul">
+            <li>111</li>
+            <li>222</li>
+            <li>333</li>
+        </ul>
+    </div>
+    <div id='div2'>
+        div222
+        <div id="div3">
+
+        </div>
+
+    </div>
+</body>
+<script>
+    var oDiv1 = document.getElementById('div1');
+    var oDiv2 = document.getElementById('div2');
+    var oDiv3 = document.getElementById('div3');
+    var oUl = document.getElementById('oul');
+    
+
+
+
+    /* 节点
+                nodeType 节点类型
+                元素节点  1
+                属性节点  2
+                文本节点  3
+   
+                nodeName
+   
+            */
+
+    // console.log(oDiv1.nodeType);
+    // console.log(oDiv2.firstChild.nodeName);
+    // console.log(oDiv2.innerHTML);
+    // 节点的遍历
+    /*
+    1.nextSibling     nextElementSibling  dom3
+    2.previousSibling     previousElementSibling  dom3
+    3.firstChild  firstElementChild,第一个孩子
+    4.lastChild   lastElementChild
+    5.children,不存在兼容性问题，找所有孩子,子节点列表
+    */
+
+
+
+    // 用nextSibling封装，寻找下一个兄弟元素节点
+    function next(elem) {
+        do {
+            elem = elem.nextSibling;
+        } while (elem && elem.nodeType != 1)
+        return elem;
+    }
+    //previousSibling用于寻找上一个兄弟元素，用于IE浏览器
+    //previousElementSibling用于谷歌浏览器等标准浏览器 
+
+    function pre(elem) {
+        do {
+            elem = elem.previousSibling
+        } while (elem && elem.nodeType != 1)
+        return elem;
+    }
+    console.log(pre(oDiv3));
+
+    function child(elem) {
+
+        if (elem.firstChild.nodeType == 1) {
+            elem = elem.firstChild;
+        }
+        else {
+            elem = elem.firstChild;
+            elem = next(elem);
+        }
+
+        return elem;
+    }
+    console.log(oUl.children);
+
+
+
+
+
+
+</script>
+
+</html>
