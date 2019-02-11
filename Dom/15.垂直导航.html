@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul {
+            width: 150px;
+            list-style: none;
+            border: 1px dashed black;
+        }
+
+        #li1 {
+            height: 50px;
+            background: black;
+        }
+
+        #li3 {
+            height: 50px;
+            background: black;
+        }
+
+        #li2 {
+            height: 100px;
+            display: none;
+        }
+
+        #li4 {
+            height: 100px;
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <ul id='ul1'>
+            <li id="li1"></li>
+            <li id="li2"></li>
+        </ul>
+
+        <ul id="ul2">
+            <li id="li3"></li>
+            <li id="li4"></li>
+        </ul>
+
+    </div>
+</body>
+<script>
+    var aUl = document.getElementsByTagName('ul');
+    for (var i = 0; i < 2; i++) {
+        first(aUl[i]).onclick = function () {
+
+            if (next(this).style.display == 'none' || next(this).style.display == '') {
+                next(this).style.display = 'block'
+            }
+            else {
+                next(this).style.display ='none'
+            }
+        }
+
+    }
+    
+
+
+    function next(elem) {
+        do {
+            elem = elem.nextSibling;
+        } while (elem && elem.nodeType != 1)
+        return elem;
+    }
+    function first(elem) {
+        elem = elem.firstChild;
+        if (elem.nodeType == 1) {
+            return elem;
+        }
+        else {
+            return next(elem);
+        }
+    }
+</script>
+
+</html>

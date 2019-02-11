@@ -13,29 +13,44 @@
         aaa
         <p>ppppp</p>
     </div>
+    <button id="btn">remove</button>
 </body>
 <script>
 
-/*
-            1.创建节点createElement()
-            2.appendChild() 插入到内部的后边
-            3.removeChild() 删除
-            4.replaceChild (newnode,oldnode)
-            5.insertBefore (newnode,refnode)
-            6.cloneNode
-
-            setAttribute();
-            getAttribute();
-        */
+    /*
+                1.创建节点createElement()
+                2.appendChild() 插入到内部的后边
+                3.removeChild() 删除
+                4.replaceChild (newnode,oldnode)
+                5.insertBefore (newnode,refnode)
+                6.cloneNode
+    
+                setAttribute();
+                getAttribute();
+            */
     var oH1 = document.createElement('h1');
-    oH1.innerHTML='hahah'
+    oH1.innerHTML = '我是h1的内容'
     var oDiv1 = document.getElementById('div1');
+    var oP = document.getElementsByTagName('p')[0];
+    var oBtn = document.getElementById('btn')
     oDiv1.appendChild(oH1);
+    // oDiv1.removeChild(oP);
+    oBtn.onclick = function () {
+        oDiv1.removeChild(oP);
+    }
+    // oDiv1.replaceChild(oH1,oP);
+    // oDiv1.insertBefore(oH1,oP);
 
 
 
+    // 为元素设置属性
+/*  元素本来就带的属性会在浏览器中的element中显示，自定义属性不会显示
+例如index为自定义属性，设置索引
 
 
+*/
+oDiv1.setAttribute('xx',111);
+console.log(oDiv1.getAttribute('xx'));//输入属性名，返回属性值
 
 </script>
 

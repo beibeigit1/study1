@@ -29,7 +29,7 @@
     var oDiv2 = document.getElementById('div2');
     var oDiv3 = document.getElementById('div3');
     var oUl = document.getElementById('oul');
-    
+
 
 
 
@@ -55,9 +55,10 @@
     5.children,不存在兼容性问题，找所有孩子,子节点列表
     */
 
-
+    console.log(first(oDiv1));
 
     // 用nextSibling封装，寻找下一个兄弟元素节点
+
     function next(elem) {
         do {
             elem = elem.nextSibling;
@@ -73,21 +74,18 @@
         } while (elem && elem.nodeType != 1)
         return elem;
     }
-    console.log(pre(oDiv3));
+    console.log(pre(oDiv2));
 
-    function child(elem) {
-
-        if (elem.firstChild.nodeType == 1) {
-            elem = elem.firstChild;
+    function first(elem) {
+        elem = elem.firstChild;
+        if (elem.nodeType == 1) {
+            return elem;
         }
         else {
-            elem = elem.firstChild;
-            elem = next(elem);
+            return next(elem);
         }
-
-        return elem;
     }
-    console.log(oUl.children);
+    console.log(oDiv2.children);
 
 
 
