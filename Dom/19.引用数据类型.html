@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+
+    <script>
+        var a = 5;
+        var b = a;
+        b = 10;
+        console.log(a);
+        //基本数据类型在栈中，引用数据类型在堆中
+        // arr中存一个地址，赋值时赋的是地址，其中一个改变另一个也改变；
+        var arr = [1, 2, 3, 4];
+        var arr1 = arr;
+        arr1[3] = 5;
+        console.log(arr);
+
+        var person1 = {
+            name: 'zs',
+            age: 10
+
+        }
+
+        // var person2 = person1;
+        // console.log(person2);
+
+
+        var person2 = {};
+        for (var key in person1) {
+            // key in person代表循环这个对象，第一次取到name，第二次age;
+            // console.log(key);输出person1中属性
+            //可变的，动态的属性  我们要用中括号来取
+
+            console.log(person1[key]);
+            person2[key] = person1[key];
+            console.log(person2[key]);
+        }
+
+        function clone(obj) {
+            var result = {};
+            for (var key in obj) {
+                result[key] = obj[key];
+            }
+            return result;
+
+        }
+        var person3 = clone(person1);//person3与2独立，互不影响；
+
+        person1.name = 'lisi';
+        console.log(person3);
+
+
+    </script>
+</body>
+
+</html>

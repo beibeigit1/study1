@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="div1">
+        nihao1
+
+    </div>
+    <script>
+        var oDiv1 = document.getElementById('div1');
+        // oDiv1.onclick = function () {
+        //     alert('111');
+        // }
+        // oDiv1.onclick = function () {
+        //     alert('222');
+        // }  两个点击事件执行最后一个；
+        oDiv1.addEventListener('click', function () {
+            console.log('111');
+        }, false);//支持冒泡
+        oDiv1.addEventListener('click', function () {
+            console.log('333');
+        }, false);
+
+    </script>
+</body>
+
+</html>

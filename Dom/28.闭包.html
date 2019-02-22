@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <!-- js作用域 
+
+        全局作用域 
+        局部作用域
+
+        闭包：
+        闭包是指外部函数里声明内部函数，内部函数引用外部函数里的局部变量，
+        这样当外部函数调用完毕以后，局部变量不被释放，可以一直使用。
+
+        缺点 内存泄漏
+        http://www.ruanyifeng.com/blog/2009/08/learning_javascript_closures.html
+
+    -->
+    <ul>
+        <li>111</li>
+        <li>222</li>
+        <li>333</li>
+    </ul>
+    
+    <script>
+        // var a = 5;
+
+        // function fn(){
+        //     var b = 10;
+        //     console.log(a);
+        // }
+        // fn();
+
+        // console.log(b);
+
+
+        // function a(){
+        //     var x = 1;
+        //     function b(){
+        //         console.log(x);
+        //     }
+        //     return b;
+        // }
+        // var bFn = a();
+
+        // bFn();
+
+        // function fn(){
+        //     var z = 20;
+        //     console.log(z);
+        // }
+
+        // fn();
+
+        var aLi = document.getElementsByTagName('li');
+        
+        for(var i=0; i<aLi.length; i++){
+            // 函数的立即调用
+            (function(i){ //i 局部变量 
+                aLi[i].onclick = function(){
+                    console.log(i);
+                }
+            })(i)
+        }
+
+    
+    
+    </script>
+
+
+</body>
+</html>

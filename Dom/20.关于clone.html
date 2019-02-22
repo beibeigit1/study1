@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+
+    <script>
+
+        var person1 = {
+            name: 'zs',
+            age: 10,
+            father: {
+                name: 'zxx',
+                age: 40
+            }
+
+        }
+
+
+        //浅拷贝
+
+        function clone1(obj) {
+            var result = {};
+            for (var key in obj) {
+                result[key] = obj[key];
+            }
+            return result;
+
+        }
+        var person3 = clone1(person1);
+
+        // person1.father.name = 'zhanglisi';
+        console.log(person3);
+        //此时person1中father.name改变，person3中也变了，这是浅拷贝
+        //正常如果没有father，是独立克隆
+
+
+
+        //深拷贝,利用函数的递归
+
+
+        function clone(obj) {
+            var result = {};
+            for (var key in obj) {
+
+                if (typeof obj[key] == "object") {
+                    result[key] = clone(obj[key])
+                }
+                else {
+                    result[key] = obj[key];
+                }
+
+            }
+            return result;
+
+        }
+        var person5 = clone(person1);
+
+        person1.father.name = 'zhanglisi';
+        console.log(person5);
+
+    </script>
+</body>
+
+</html>

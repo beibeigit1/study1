@@ -57,19 +57,22 @@
 <script>
     var aUl = document.getElementsByTagName('ul');
     for (var i = 0; i < 2; i++) {
+        first(aUl[i]).flag = 'true';
         first(aUl[i]).onclick = function () {
 
-            if (next(this).style.display == 'none' || next(this).style.display == '') {
+            if (this.flag) {
                 next(this).style.display = 'block';
+
                 //.style.只能检测到之前设置的内联样式，而之前设置使用的是css
             }
             else {
-                next(this).style.display ='none'
+                next(this).style.display = 'none';
             }
+            this.flag = !this.flag;
         }
 
     }
-        function next(elem) {
+    function next(elem) {
         do {
             elem = elem.nextSibling;
         } while (elem && elem.nodeType != 1)
