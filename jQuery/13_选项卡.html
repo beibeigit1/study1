@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+
+
+    li {
+        /* float: left; */
+        display: inline-block;
+        border: 1px solid black;
+        background: #ccc;
+        width: 60px;
+        cursor: pointer;
+    }
+
+    #content {
+        width: 200px;
+        height: 150px;
+        border: 1px solid black;
+    }
+
+    #content div {
+        display: none;
+    }
+
+    #content .active {
+        display: block;
+    }
+
+    ul .selected {
+        background: pink;
+
+    }
+</style>
+
+<body>
+    <div>
+        <ul class="head">
+            <li class="selected">时事</li>
+            <li>体育</li>
+            <li>娱乐</li>
+        </ul>
+        <div id="content">
+            <div class="active">时事</div>
+            <div>体育</div>
+            <div>娱乐</div>
+        </div>
+    </div>
+</body>
+<script src="jquery-1.12.4.js"></script>
+<script>
+    $('li').on('click', function () {
+        //1.按钮添加样式
+        // $(this).addClass('selected');
+        // $('li').not(this).removeClass('selected');和下面一行含义相同
+        $(this).addClass('selected').siblings().removeClass('selected');
+        //index()返回索引
+        $('#content div').eq( $(this).index() ).addClass('active').siblings().removeClass('active');
+
+
+    })
+
+
+
+
+
+</script>
+
+</html>

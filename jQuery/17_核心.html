@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="div1">
+        <div class="aa"></div>
+        <div class="bb"></div>
+    </div>
+    <ul>
+        <li>111</li>
+        <li>222</li>
+        <li>333</li>
+    </ul>
+    <ul>
+
+        <li>11</li>
+        <li class="dd">22</li>
+        <li>33</li>
+    </ul>
+    <script src="jquery-1.12.4.js"></script>
+    <script>
+    
+   console.log( $('.dd').index() ) ;//index()括号不加东西显示兄弟元素索引
+   console.log( $('.dd').index('li') ) ;//在所有li中的索引
+   console.log( $('li').length );
+   console.log( $('li').size() );
+
+   
+        var obj = {
+            name:'zs',
+            age:10
+        }
+        var obj2 = {
+            name:'lisi',
+            school:'weichuang'
+        }
+
+        console.log( $.extend({},obj,obj2) );//后面的参数覆盖前面的。多的加上，相同覆盖
+        console.log(obj);
+
+    
+    </script>
+</body>
+</html>

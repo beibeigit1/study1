@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #div1 {
+            width: 200px;
+            height: 200px;
+            background: #f0f;
+        }
+
+        #div2 {
+            width: 100px;
+            height: 100px;
+            background: red;
+        }
+    </style>
+</head>
+<body>
+    <select id="school">
+        <option value="aa">理工</option>
+        <option value="bb">黑大</option>
+        <option value="cc">林大</option>
+    </select>
+    <div id="div1">111
+        <div id="div2">222 </div>
+    </div>
+    <script src="jquery-1.12.4.js"></script>
+    <script>
+        // $('#div1').on("mouseover",function(){
+        //     console.log(div1)
+        // })
+        // $('#div2').on("mouseover",function(){
+        //     console.log(div2)
+        // })
+//mouseenter mouseleave 没有冒泡，enter div2时没有触发div1
+// mouseover mouseout支持事件冒泡，用原码时用的就是mouseover
+        // $('#school').on('change',function(){
+        //     console.log( $(this).val() );
+        // })
+        // $('#div1').on("mouseover",function(e){
+        //     console.log(e.target)
+        // })
+        // $('#div2').on("mouseover",function(e){
+        //     console.log(div2,e.target)
+        // })
+
+        $(document).on('keyup',function(e){
+            console.log(e.which);//敲击键盘识别
+    
+        })
+    </script>
+</body>
+
+</html>
