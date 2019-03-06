@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        table {
+            border: 1px solid black;
+
+        }
+
+        table td,
+        th {
+            border: 1px solid black;
+            width: 50%;
+        }
+
+        body {
+            font-size: 16px;
+        }
+
+        table {
+            border: 1px solid black;
+            border-collapse: collapse;
+            width: 400px;
+        }
+
+        table td,
+        th {
+            width: 50%;
+            border: 1px solid black;
+            height: 30px;
+        }
+
+        tbody th {
+            background: #abc;
+        }
+        .txt{
+            border:none;
+        }
+    </style>
+</head>
+
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th colspan="2">鼠标点击表格可以编辑</th>
+                <!-- colspan是跨列的意思，跨两列 -->
+            </tr>
+
+        </thead>
+        <tbody>
+            <tr>
+                <th>学号</th>
+                <th>姓名</th>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td class="aa">张三</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td class="aa">李四</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td class="aa">王五</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td class="aa">李六</td>
+            </tr>
+        </tbody>
+
+    </table>
+    <script src="../jquery-1.12.4.js"></script>
+    <script>
+        $('.aa').on('click', function () {
+            if($( this ).children().size()<=0){
+                 var $val= $(this).html(); 
+                 //加入input
+            $(this).html('<input class="txt" value="'+$val+'">');
+            }
+        //   $(this).children().trigger('focus');//仅获得焦点
+          $(this).children().trigger('select');//选中
+
+        })
+        //按下enter时input中文本放入td,下面this指input，事件委托，解决后生成文件事件绑定问题
+        $('.aa').on('keyup','input',function(e){
+            var val=$(this).val();
+            if(e.which==13){
+                $(this).parent().html(val);
+            }
+        })
+        
+
+
+
+
+
+
+    </script>
+
+</body>
+
+</html>
