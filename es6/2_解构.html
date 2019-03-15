@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    
+    let obj={
+        name:'zs',
+        age:13
+    }
+    
+    // let{x,y}=obj;     错误示范，属性名要对应，必须是obj中有的
+    let{name,age}=obj;  //如果觉得属性名麻烦，可以name：n
+    console.log(name,age);
+    
+    //字符串解构
+    let str='abcde';
+    let[x,y,z,w,d]=str;
+    console.log(x,y,z,w,d);
+    let [a]=str;
+    console.log(a);
+    
+    </script>
+</body>
+</html>
