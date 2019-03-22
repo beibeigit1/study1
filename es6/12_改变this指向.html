@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var obj1 = {
+            name: 'lisi',
+            age: 20,
+            sc: 'haligong',
+            say: function () {
+                console.log(this.name);
+            }
+
+        }
+        var obj2 = {
+            name: 'zs',
+
+        }
+
+        obj1.say.call(obj2); //此时this.name指向obj2中name
+
+    //apply
+    //bind
+
+    // fn.call(p1,'aaa','bbb');
+    // fn.apply(p1,['aaa','bbb']);
+    // fn.bind(p1,'aaa','bbb')();//不加括号就不调用，只是更改了this指向
+
+    </script>
+</body>
+
+</html>

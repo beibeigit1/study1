@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function* test() {
+            console.log('haha');
+            let x = yield console.log('yield');
+            console.log(x);
+            console.log('nihao')
+        }
+
+        var test = test();
+        test.next();
+        test.next('lalala');
+
+        function* test2(){
+            console.log('begin');
+            let x=yield console.log('haha');
+            yield console.log(x);
+            console.log('third');
+
+
+        }
+
+        var t=test2();
+        t.next();
+        t.next('finish');
+        t.next();
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>
