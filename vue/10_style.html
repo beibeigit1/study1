@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+
+
+
+
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <!-- <div :style="{background:bg,color:col}">hello</div> -->
+        <!-- <div :style='obj'>hello</div> -->
+        <div :style='[objBg,objWidth]'>good good study</div>
+        <!-- 第一种和第二种差不多 -->
+    </div>
+    <script src="vue.js"></script>
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                bg: 'orange',
+                col: 'green',
+                obj: {
+                    background: 'red',
+                    border: '1px solid #000'
+                },
+                objBg:{
+                    background:'pink', 
+                    color:'#fff'
+                },
+                objWidth:{
+                    width:'200px',
+                    height:'100px'
+                }
+
+            }
+
+        })
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>
