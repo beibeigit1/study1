@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #app {
+            width: 400px;
+            margin: 0 auto;
+        }
+
+        li {
+            border: 1px solid black;
+            height: 50px;
+            line-height: 50px;
+            list-style: none;
+            background: green;
+            margin-top: 10px;
+        }
+
+        li span {
+            float: right;
+        }
+        .active{
+            background: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <h2>商品列表</h2>
+        <ul>
+            <li v-for='obj in proList' :class='{active:obj.isA}' @click='change(obj)'>{{obj.name}}
+                <span>{{obj.price}}</span>
+            </li>
+        </ul>
+        <hr>
+        <h3>total:{{total}}
+
+        </h3>
+    </div>
+    <script src="vue.js"></script>
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                proList: [{
+                    name: '衣服',
+                    price: 134,
+                    isA:false
+                },
+                {
+                    name: '鞋子',
+                    price: 567,
+                    isA:false
+                },
+                {
+                    name: '零食',
+                    price: 121,
+                    isA:false
+                },
+                {
+                    name: '化妆品',
+                    price: 1121,
+                    isA:false
+                },
+                {
+                    name: '日用品',
+                    price: 100,
+                    isA:false
+                }],
+                total:0
+            },
+            methods:{
+                // 当要对data中数据对象操作时，用this.proList.obj.。。。。之类的，只是其中某个属性时可以直接用
+                change(obj){
+                    obj.isA=!obj.isA;
+                      if(obj.isA){
+                        this.total+=obj.price;
+                    }
+                    else{
+                        this.total-=obj.price;
+                    }
+                }
+            }
+        })
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>
