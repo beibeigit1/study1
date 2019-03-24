@@ -72,7 +72,7 @@
                 },
                 filter() {
                     //过滤list数组中val 中包含this.msg的
-                    var arr = this.list.filter(function(obj, index){
+                    var arr = this.list.filter((obj, index)=>{
                         // console.log(this);//如果为function指向windows,改成箭头函数之后，this指向父元素指向，即vue
                         // console.log(obj.val,this.msg);                     //，msg是vue中的，this必须指向vue才行,不然undefined
                         return obj.val.includes(this.msg);
