@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #app {
+            width: 500px;
+            height: 400px;
+            margin: 0 auto;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        li {
+            background: #cccccc;
+            height: 50px;
+            margin-bottom: 10px;
+            line-height: 50px;
+        }
+
+        .close,
+        .price {
+            float: right;
+            margin-right: 10px;
+        }
+
+        .close {
+            color: #ff0036;
+        }
+
+        .active {
+            background: pink;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <h1>todolist</h1>
+        <hr>
+        <div>
+            名称<input type="text" placeholder="请输入产品名" v-model='name'>
+            价格<input type="text" placeholder="请输入价格" v-model='price'>
+            <button @click='add()'>添加</button>
+            <br>
+            <input type="text" placeholder="请输入搜索内容" v-model='searchV'>
+            <button @click='search()'>搜索</button>
+
+        </div>
+        <div>
+            <ul>
+                <li v-for='obj in showList' @click='change(obj)' :class='{active:obj.isSelect}'>
+                    <input type="checkbox" v-model='obj.isSelect'>
+                    <span>{{obj.name}} </span>
+                    <span class="close">[X]</span>
+                    <span class="price">{{obj.price}}</span>
+                </li>
+            </ul>
+        </div>
+        <div>
+            <button @click='del()'>删除选中</button>
+            总价：{{total()}}
+        </div>
+
+
+    </div>
+    <script src="vue.js"></script>
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                proList: [
+                    {
+                        name: '裤子',
+                        price: 112,
+                        isSelect: false
+                    },
+                    {
+                        name: '衣服',
+                        price: 222,
+                        isSelect: false
+                    },
+                    {
+                        name: '电脑',
+                        price: 100000,
+                        isSelect: false
+                    }, {
+                        name: '手机',
+                        price: 5023,
+                        isSelect: false
+                    }
+                ],
+                showList: [{
+                    name: '裤子',
+                    price: 112,
+                    isSelect: false
+                },
+                {
+                    name: '衣服',
+                    price: 222,
+                    isSelect: false
+                },
+                {
+                    name: '电脑',
+                    price: 100000,
+                    isSelect: false
+                }, {
+                    name: '手机',
+                    price: 5023,
+                    isSelect: false
+                }],
+                name: '',
+                price: '',
+                searchV: ''
+            },
+            methods: {
+                add() {
+                    this.proList.push({
+                        name: this.name,
+                        price: this.price,
+                        isSelect: false
+                    })
+                    this.showList = [...this.proList];
+                },
+                search() {
+                    var newList = this.proList.filter(function (obj, index) {//可以返回满足条件的数组
+                        //在函数中this指向windows,加上箭头函数就是指向父作用域地this
+                        return obj.name.includes(this.searchV);
+                    })
+                    this.showList = [...newList];
+                },
+                change(obj) {
+                    //传过来的是show的obj
+                    obj.isSelect = !obj.isSelect;
+                    //pro修改成和show一样的
+                    this.proList = [...this.showList];
+                },
+                del() {
+                    var result = this.proList.filter((obj, index) => {
+                        // return !obj.isSelect;
+                        return obj.isSelect == false;
+                    })
+                    //重新显示
+                    this.proList = [...result];
+                    this.showList = [...result];
+
+                },
+                total() {
+                    let count = 0;
+                    this.showList.forEach(function (obj) {
+                        if (obj.isSelect) {
+                            count += obj.price
+                        }
+                    })
+
+                    return count;
+                }
+
+            }
+        })
+
+
+
+
+    </script>
+</body>
+
+</html>

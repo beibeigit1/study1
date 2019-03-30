@@ -14,11 +14,13 @@
 <body>
     <div id="app">
         是否需要额外付费家具
-        <input type="checkbox" v-model='isChecked'>
+        <input type="checkbox" v-model='isChecked' @click='fn()'>  
         <ul v-show='isChecked'>
             <li v-for='obj in payList'>
                 {{obj.name}}({{obj.price}})
-                <input type="checkbox" v-model=''>
+                <input type="checkbox" v-model='orderList' :value='obj'>
+                <!-- 重要位置：当此时的checkbox被选中时，obj的值会被放入orderList 
+                跟数组做绑定-->
             </li>
         </ul>
         <div>
@@ -27,7 +29,7 @@
                 <li v-for='obj in orderList'>{{obj.name}}{{obj.price}}</li>
             </ul>
         </div>
-        <div>总金额：111</div>
+        <div>总金额：{{total()}}</div>
     </div>
 
     <script src='vue.js'></script>
@@ -55,11 +57,20 @@
             },
 
             methods: {
-                // change() {
-                //     this.isChecked = !this.isChecked;
-                // }
+                
+                total(){
+                    let total=0;
+                    this.orderList.forEach(function(obj,index){
+                        
+                            total+=obj.price;
+                      
+                    })
+                    return total;
+                },
+                fn(){
+                    this.orderList=[this.orderList[0]];
+                }
             }
-
 
 
         })
