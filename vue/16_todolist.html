@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #app {
+            width: 500px;
+            height: 400px;
+            margin: 0 auto;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        li {
+            background: #cccccc;
+            height: 50px;
+            margin-bottom: 10px;
+            line-height: 50px;
+        }
+
+        .close,
+        .price {
+            float: right;
+            margin-right: 10px;
+        }
+
+        .close {
+            color: #ff0036;
+        }
+
+        .active {
+            background: pink;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <h1>todolist</h1>
+        <hr>
+        <div>
+            名称<input type="text" placeholder="请输入产品名" v-model='name'>
+            价格<input type="text" placeholder="请输入价格" v-model='price'>
+            <button @click='add()'>添加</button>
+            <br>
+            <input type="text" placeholder="请输入搜索内容" v-model='searchV'>
+            <button >搜索</button>
+
+        </div>
+        <div>
+            <ul>
+                <li v-for='obj in showList' >
+                    <input type="checkbox">
+                    <span>{{obj.name}} </span>
+                    <span class="close">[X]</span>
+                    <span class="price">{{obj.price}}</span>
+                </li>
+            </ul>
+        </div>
+        <div>
+            <button >删除选中</button>
+            总价：111
+        </div>
+
+
+    </div>
+    <script src="vue.js"></script>
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                proList: [
+                    {
+                        name: '裤子',
+                        price: 112,
+                        isSelect: false
+                    },
+                    {
+                        name: '衣服',
+                        price: 222,
+                        isSelect: false
+                    },
+                    {
+                        name: '电脑',
+                        price: 100000,
+                        isSelect: false
+                    }, {
+                        name: '手机',
+                        price: 5023,
+                        isSelect: false
+                    }
+                ],
+                showList: [{
+                    name: '裤子',
+                    price: 112,
+                    isSelect: false
+                },
+                {
+                    name: '衣服',
+                    price: 222,
+                    isSelect: false
+                },
+                {
+                    name: '电脑',
+                    price: 100000,
+                    isSelect: false
+                }, {
+                    name: '手机',
+                    price: 5023,
+                    isSelect: false
+                }],
+                name:'',
+                price:'',
+                searchV:''
+               
+            },
+           
+        })
+
+
+
+
+    </script>
+</body>
+
+</html>
