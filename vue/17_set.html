@@ -14,7 +14,7 @@
         <ul>
             <li v-for='val in arr'>{{val}}</li>
         </ul>
-        <h2>{{total()}}</h2>
+        <h2>{{sum}}</h2>
 
     </div>
     <!-- vue中不能直接修改数组值 -->
@@ -28,19 +28,32 @@
             methods: {
                 change() {
                     // this.arr[1]=666;
-                    Vue.set(this.arr,1,666);
+                    Vue.set(this.arr, 1, 666);
                 },
-                total(){
-                    var count=0;
-                    this.arr.forEach(function(val){
-                        count+=val;
+                total() {
+                    var count = 0;
+                    this.arr.forEach(function (val) {
+                        count += val;
                     })
                     return count;
                 }
             },
-            computed:{//计算属性
-                sum:{
-                    get:function
+            computed: {//计算属性:可以缓存，不用每次都计算，方法每次都要重新计算
+                // sum: {
+                //     get: function () {
+
+                //     },//默认走get
+                //     set(){
+
+                //     }
+                // }
+                //简化：
+                sum(){
+                    var count = 0;
+                    this.arr.forEach(function (val) {
+                        count += val;
+                    })
+                    return count;
                 }
             }
         })
