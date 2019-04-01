@@ -12,25 +12,46 @@
             height: 300px;
             width: 280px;
         }
-        .title span{
-            float:right;
+
+        .title span {
+            float: right;
         }
     </style>
 </head>
 
 <body>
     <div id="app">
-        <mydialog></mydialog>
+        <button @click='login()'>登录</button>
+        <button @click='reg()'>注册</button>
+        <!-- xx事件=‘父组件中的函数’ -->
+        <mydialog name='登录' v-show='isLogin' @xx='hide'>
+            <label for="username">用户名</label>
+            <input type="text" id="username" placeholder="请输入用户名">
+            <br>
+            <label for="passport">密码</label>
+            <input type="text" id="passport" placeholder="请输入密码">
+        </mydialog>
+        <mydialog name='注册' v-show='isReg' @xx='hide'>
+            <label for="username">用户名</label>
+            <input type="text" id="username" placeholder="请输入用户名">
+            <br>
+            <label for="passport">密码</label>
+            <input type="text" id="passport" placeholder="请输入密码">
+            <br>
+            <label for="passport">请确认密码</label>
+            <input type="text" id="passport" placeholder="请再次输入密码">
+        </mydialog>
+
     </div>
     <template id="temp">
         <div id='container'>
-            <div class="title">标题
-                <span>[X]</span>
+            <div class="title">{{name}}
+                <span @click="$emit('xx')">[X]</span>
             </div>
-
             <hr>
-            <div class="content">内容</div>
-
+            <div class="content">
+                <slot></slot>
+            </div>
 
         </div>
 
@@ -39,12 +60,29 @@
     <script>
         var vm = new Vue({
             el: '#app',
-            data: {},
+            data: {
+                isLogin: false,
+                isReg: false
+            },
             components: {
-                'mydialog':{
-                 template:"#temp"
+                'mydialog': {
+                    template: "#temp",
+                    props: ['name']
                 }
-                
+            },
+            methods: {
+                login() {
+                    this.isLogin = !this.isLogin;
+                    this.isReg = false;
+                },
+                reg() {
+                    this.isReg = !this.isReg;
+                    this.isLogin = false;
+                },
+                hide() {
+                    this.isReg = false;
+                    this.isLogin = false;
+                }
             }
         })
 
