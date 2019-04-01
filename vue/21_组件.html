@@ -7,15 +7,39 @@
     <title>Document</title>
 </head>
 <body>
-    <div id="app"></div>
+    <!-- html中标签不区分大小写 
+    js中区分大小写-->
+    <div id="app">
+        <haligong></haligong>
+        <myc></myc>
+        <myc2></myc2>
+    </div>
     <script src="vue.js"></script>
     <script>
+        Vue.component('haligong',{
+            template:'<h2>haha</h2>'
+        });//全局组件，所有实例化对象都能用
     var vm=new Vue({
         el:'#app',
         data:{
 
+        },
+        components:{
+            'myc':{
+                template:'<h3>hello</h3>'
+            },
+            'myc2':{
+                template:'<h3>second</h3>'
+            }//局部组件
         }
-    })
+    });
+    // var vm1=new Vue({
+    //     el:'#app1',
+    //     data:{
+
+    //     }
+    // });
+    
     
     
     
