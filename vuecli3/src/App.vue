@@ -2,8 +2,14 @@
   <div id="app">
     <div id="nav">
       <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+      <router-link to="/about">About</router-link>|
+      <router-link to="/mine">Mine</router-link>|
+      <router-link to="/test">Test</router-link>
+      <!-- to后面加的是路径 -->
+
+
     </div>
+    <!-- 作用：占位置 -->
     <router-view/>
   </div>
 </template>
