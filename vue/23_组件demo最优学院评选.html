@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <demo title="最优学院评选">
+            <hr>
+            <div slot='content'>
+                <h3>增加理想学院</h3>
+                <input type="text" placeholder="请输入内容" v-model='msg'>
+                <button @click='add()'>增加</button>
+            </div>
+            <div slot='footer'>
+                <h3>请选择:你心中的理想学院</h3>
+                <select name="school" v-model='set'>
+                    <option value="自动化">自动化</option>
+                    <option value="机械">机械</option>
+                    <option value="电气">电气</option>
+                    <option v-bind:value="val" v-for='val in arr'>{{val}}</option>
+                </select>
+            </div>
+
+        </demo>
+    </div>
+
+    <template id="temp">
+        <div>
+            <h2>{{title}}</h2>
+            <!-- 增加卡槽 -->
+            <slot name='footer'></slot>
+            <slot name='content'></slot>
+        </div>
+    </template>
+
+    <slot></slot>
+    <script src="vue.js"></script>
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                msg:'',
+                set:'',
+                arr:[],
+            },
+            components: {
+                'demo': {
+                    template: '#temp',
+                    props: ['title']
+
+                }
+            },
+            methods:{
+                add(){
+                    this.arr.push(this.msg);
+                    this.set=this.msg;
+                }
+            }
+        })
+
+
+    </script>
+</body>
+
+</html>
