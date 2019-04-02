@@ -58,8 +58,13 @@
             },
             methods:{
                 add(){
-                    this.arr.push(this.msg);
+                    if(this.arr.includes(this.msg)){
+                    this.set=this.msg;                      
+                    }else{
+                        this.arr.push(this.msg);
                     this.set=this.msg;
+                    }
+                    
                 }
             }
         })
