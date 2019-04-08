@@ -5,6 +5,10 @@ import Mine from './views/Mine.vue';
 import Test from './views/Test.vue';
 import A from './views/A.vue';
 import B from './views/B.vue';
+import Error from './views/Error.vue';
+import Count from './views/Count.vue';
+
+
 
 
 
@@ -18,6 +22,11 @@ export default new Router({
       path: '/',
       name: 'home',
       component: Home,
+      // beforeEnter(to,form,next){
+      //   console.log(to,form,next);
+      //   // 调用next才会跳转
+      //   next();
+      // }
     },
     {
       path: '/about',
@@ -41,10 +50,20 @@ export default new Router({
         }, {
           path: '/b',
           component: B
-        }
+        },
 
       ]
-    },
+    }, {
+      path: '/',
+      component: Home,
+      alias: '/abc'
+    }, {
+      path: '*',
+      component: Error
+    },{
+      path:'/count',
+      component:Count
+    }
 
   ],
 });

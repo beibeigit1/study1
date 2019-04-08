@@ -1,22 +1,41 @@
 <template>
   <div id="app">
     <div id="nav">
-      <router-link to="/">Home</router-link> |
+      <button @click="prev()">返回</button>
+      <router-link to="/">Home</router-link>|
+      <router-link to="abc">abc</router-link>
+|
       <router-link to="/about">About</router-link>|
       <router-link to="/mine">Mine</router-link>|
-      <router-link to="/test">Test</router-link>
+      <router-link to="/test">Test</router-link>|
+      <router-link to="/xxx">xxx</router-link>
+      <router-link to="/count">count</router-link>
+
+
       <!-- to后面加的是路径 -->
-
-
     </div>
     <!-- 作用：占位置 -->
-    <router-view/>
+    <transition>
+      <router-view/>
+    </transition>
+    
   </div>
 </template>
+ <script>
+  export default {
+  methods:{
+    prev(){
+      this.$router.go(-1);
+    }
+  }
+  
+};
+    </script>
+
 
 <style>
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
