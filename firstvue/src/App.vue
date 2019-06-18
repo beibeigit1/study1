@@ -10,6 +10,7 @@
       <router-link to="/home">重定向</router-link>|
       <router-link to="/home/azhou/26">重定向参数</router-link>|
       <router-link to="/woshinibaba">别名</router-link>|
+ 
 
 
     </div>
@@ -24,7 +25,7 @@
   opacity: 0;
 }
 .fade-enter-active{
-  transition: opacity 2s linear;
+  transition: opacity 1s linear;
 }
 .fade-enter-to{
   opacity: 1;
