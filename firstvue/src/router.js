@@ -6,13 +6,29 @@ import Mine from './views/Mine.vue'
 import Test1 from './views/Test1.vue'
 import Test2 from './views/Test2.vue'
 import Error from './views/Error.vue'
+import Movie from './views/Movie.vue'
+import MovieDetail from './views/MovieDetail.vue'
+import ComponentA from './views/ComponentA.vue'
 
 Vue.use(Router);
 
-let router=new Router({
+let router = new Router({
   mode: 'history',//hash会影响地址格式 
   base: process.env.BASE_URL,
   routes: [
+    {
+      path: '/movie',
+      name: 'movie',
+      component: Movie
+    },
+    {
+      path: '/moviedetail/:movieNum',
+      component: MovieDetail
+    },
+    {
+      path: '/componenta',
+      component: ComponentA
+    },
     {
       path: '/',
       name: 'home',
@@ -20,17 +36,17 @@ let router=new Router({
     },
     {
       path: '/home',
-      redirect:'/',
-      component:Home
+      redirect: '/',
+      component: Home
     },
     {
       path: '/home/:name/:age',
-      redirect:'/mine/test2/:name/:age',
-      component:Test2
+      redirect: '/mine/test2/:name/:age',
+      component: Test2
     },
     {
-      path:'*',
-      component:Error
+      path: '*',
+      component: Error
     },
     {
       path: '/about',
@@ -39,7 +55,7 @@ let router=new Router({
       // this generates a separate chunk (about.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
       component: () => import(/* webpackChunkName: "about" */ './views/About.vue'),
-      alias:'/woshinibaba'
+      alias: '/woshinibaba'
     },
     {
       path: '/hello',
@@ -61,9 +77,9 @@ let router=new Router({
     },
   ]
 });
-router.beforeEach((to,from,next) => {
-//...
-next();
+router.beforeEach((to, from, next) => {
+  //...
+  next();
 })
 
 

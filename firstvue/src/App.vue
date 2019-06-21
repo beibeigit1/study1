@@ -10,6 +10,8 @@
       <router-link to="/home">重定向</router-link>|
       <router-link to="/home/azhou/26">重定向参数</router-link>|
       <router-link to="/woshinibaba">别名</router-link>|
+      <router-link to="/movie">电影列表</router-link>|
+     
  
 
 
