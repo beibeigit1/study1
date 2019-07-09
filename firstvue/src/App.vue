@@ -4,7 +4,7 @@
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link>|
       <router-link to="/hello">HelloWorld</router-link>|
-      <router-link to="/mine">Mine</router-link>|
+      <router-link to="/mine/hello">Mine</router-link>|
       <router-link :to="{name:'test1',params:{name:'zhangsan',age:30}}">Test1</router-link>|
       <router-link to="/mine/test2/lisi/25">Test2</router-link>|
       <router-link to="/home">重定向</router-link>|

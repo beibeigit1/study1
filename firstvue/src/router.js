@@ -61,9 +61,10 @@ let router = new Router({
       path: '/hello',
       name: 'hello',
       component: HelloWorld
-    }, {
-      path: '/mine',
-      component: Mine,
+    }, 
+    {
+      path:'/mine/:xx',
+      component:Mine,
       children: [{
         path: 'test1',
         name: 'test1',
@@ -74,6 +75,20 @@ let router = new Router({
       }
 
       ]
+    },
+    {
+      path: '/mine',
+      component: Mine,
+      // children: [{
+      //   path: 'test1',
+      //   name: 'test1',
+      //   component: Test1
+      // }, {
+      //   path: 'test2/:name/:age',
+      //   component: Test2
+      // }
+
+      // ]
     },
   ]
 });
