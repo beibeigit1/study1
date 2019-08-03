@@ -1,5 +1,5 @@
 <template>
-  <div :style="{background:bg}">
+  <div :style="{background:color}">
     <ul>
       <li v-for="(obj,index) in arr" :key="index" >
         <router-link :to="obj.path" @click.native="change(obj)">{{obj.name}}</router-link>
@@ -15,15 +15,16 @@ import Book from "@/views/book/Book.vue";
 import Photo from "@/views/photo/Photo.vue";
 
 export default {
-  props: ["arr"],
+  props: ["arr","color"],
   data() {
     return {
-      bg: ""
+     
     };
+
   },
   methods: {
     change(obj) {
-      this.bg = obj.bgcolor;
+      // this.bg = obj.bgcolor;
       this.$emit('changebg',obj)
       
     }

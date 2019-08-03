@@ -3,7 +3,7 @@
     <c-header :obj="obj"></c-header>
 
     <router-view id="content"></router-view>
-    <c-footer :arr="arr" @changebg="color"></c-footer>
+    <c-footer :arr="arr" @changebg="color" :color='obj.bgcolor'></c-footer>
   </div>
 </template>
 <script>
@@ -66,4 +66,7 @@ export default {
 </script>
 
 <style>
+#content{
+  padding:0.2rem;
+}
 </style>
