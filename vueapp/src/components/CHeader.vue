@@ -18,6 +18,8 @@ export default {
 
 <style  scoped>
 div {
+  position: fixed;
+  top: 0px;
   width: 100%;
   height: 1rem;
   background: #9999ff;

@@ -41,7 +41,7 @@ export default {
 
 <style  scoped>
 div {
-  position: absolute;
+  position: fixed;
   bottom: 0;
   left: 0;
   height: 1rem;
