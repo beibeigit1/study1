@@ -1,7 +1,7 @@
 <template>
   <div>
     <ul>
-      <li v-for="(obj,index) in movieList" :key="index">
+      <li v-for="(obj,index) in movieList" :key="index" @click="goDetail(obj.id)">
         <!-- <img :src="getImages(obj.images.small)" alt /> -->
         <img :src="'https://images.weserv.nl/?url='+obj.images.small" />
         <div>
@@ -54,6 +54,10 @@ export default {
                     }
         })
         .catch();
+    },
+    goDetail(id){
+      this.$router.push('/moviedetail/'+id);
+      console.log(this.id)
     }
   },
   created() {

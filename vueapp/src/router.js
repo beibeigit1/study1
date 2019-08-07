@@ -5,7 +5,7 @@ import Music from './views/music/Music.vue';
 import Book from './views/book/Book.vue';
 import Photo from './views/photo/Photo.vue';
 import MusicList from './views/music/MusicList.vue';
-
+import MovieDetail from './views/movie/MovieDetail.vue';
 
 
 
@@ -35,10 +35,11 @@ export default new Router({
       path: '/photo',
       component: Photo
     },
+    
     {
-      name: 'musiclist',
-      path: '/musiclist',
-      component: MusicList
+      // name: 'musiclist',
+      path: '/moviedetail/:id',
+      component: MovieDetail
     },
     
   ]
