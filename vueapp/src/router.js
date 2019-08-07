@@ -24,7 +24,6 @@ export default new Router({
       path: '/music',
       component: Music,
       name: 'music',
-
     },
     {
       name: 'book',
@@ -41,5 +40,6 @@ export default new Router({
       path: '/musiclist',
       component: MusicList
     },
+    
   ]
 })
