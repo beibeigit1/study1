@@ -10,6 +10,7 @@
   }"
     /> -->
      <aplayer :music="list[0]" :list="list" v-if="isShow" showLrc/>
+   
   </div>
 </template>
 
@@ -32,14 +33,15 @@ export default {
     Aplayer
   },
   created() {
-    Axios.get("/data/musicdata.json").then(result => {
+    Axios.get("/data/musicdata.json").then((result) => {
+      console.log(result.data);
       result.data.musicData.forEach(obj => {
           let obj1 = {
                         title:obj.title,
                         artist:obj.author,
                         src:obj.src,
                         pic:obj.musicImgSrc,
-                        lrc:`http://localhost:8080/${obj.lrc}`
+                        lrc:`http://localhost:8081/${obj.lrc}`
                     }
                     // http://localhost:8080/lrc/我要你.lrc
                     this.list.push(obj1);
