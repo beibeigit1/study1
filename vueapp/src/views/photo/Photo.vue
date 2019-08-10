@@ -1,6 +1,7 @@
 <template>
     <div class="photo">
         <img v-for="(photoSrc,index) in $store.state.photos" :key="index" :src="photoSrc.src" @click="goDetail(index)" alt="">
+        tupian
     </div>
 </template>
 

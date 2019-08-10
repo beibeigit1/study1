@@ -49,9 +49,6 @@ export default new Router({
       path: '/photodetail/:index',
       component: PhotoDetail
     },
-    {
-      path:'/slide',
-      component:Slide
-    }
+    
   ]
 })
