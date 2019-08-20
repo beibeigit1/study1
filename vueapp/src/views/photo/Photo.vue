@@ -16,7 +16,7 @@
         created () {
             axios.get('/data/photodata.json')
             .then((result)=>{
-                // console.log(result.data.photoData);
+                console.log(result);
                 // this.photo = [...result.data.photoData];
                 this.$store.commit('addPhoto',result.data.photoData)
             })
